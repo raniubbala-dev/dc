@@ -1,5 +1,5 @@
-
 import { auth } from "./firebase2.js";
+
 console.log("NEW LOGIN.JS IS RUNNING");
 
 import {
@@ -29,7 +29,11 @@ loginButton.addEventListener("click", async function () {
 
         console.log("LOGIN SUCCESS:", userCredential.user.email);
 
-        if (userCredential.user.email !== "mdzeba2007@gmail.com") {
+        // Allow both admin accounts
+        if (
+            userCredential.user.email !== "mdzeba2007@gmail.com" &&
+            userCredential.user.email !== "nextgenlab1234@gmail.com"
+        ) {
             message.textContent = "You are not authorized as admin.";
             return;
         }
